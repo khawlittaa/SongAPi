@@ -12,9 +12,13 @@
 		8405945722010C0300AC691A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8405945522010C0300AC691A /* Main.storyboard */; };
 		8405945922010C0500AC691A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8405945822010C0500AC691A /* Assets.xcassets */; };
 		8405945C22010C0500AC691A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8405945A22010C0500AC691A /* LaunchScreen.storyboard */; };
+		84059464220467F100AC691A /* SongCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84059463220467F100AC691A /* SongCell.swift */; };
+		840594662204C54800AC691A /* Song.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840594652204C54800AC691A /* Song.swift */; };
+		E898CD531631A4C022CF4A35 /* Pods_songAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5685596B68E4B57105801EE /* Pods_songAPI.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7A0635BBA9773C53E11793A8 /* Pods-songAPI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-songAPI.release.xcconfig"; path = "Target Support Files/Pods-songAPI/Pods-songAPI.release.xcconfig"; sourceTree = "<group>"; };
 		8405944E22010C0300AC691A /* songAPI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = songAPI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8405945122010C0300AC691A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8405945322010C0300AC691A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +26,10 @@
 		8405945822010C0500AC691A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8405945B22010C0500AC691A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8405945D22010C0500AC691A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		84059463220467F100AC691A /* SongCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongCell.swift; sourceTree = "<group>"; };
+		840594652204C54800AC691A /* Song.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Song.swift; sourceTree = "<group>"; };
+		C5685596B68E4B57105801EE /* Pods_songAPI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_songAPI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FE8A4FCF1CF260B263030C76 /* Pods-songAPI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-songAPI.debug.xcconfig"; path = "Target Support Files/Pods-songAPI/Pods-songAPI.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +37,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E898CD531631A4C022CF4A35 /* Pods_songAPI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6B577B3DE29CA3034079FFAE /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				FE8A4FCF1CF260B263030C76 /* Pods-songAPI.debug.xcconfig */,
+				7A0635BBA9773C53E11793A8 /* Pods-songAPI.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		8405944522010C0300AC691A = {
 			isa = PBXGroup;
 			children = (
 				8405945022010C0300AC691A /* songAPI */,
 				8405944F22010C0300AC691A /* Products */,
+				6B577B3DE29CA3034079FFAE /* Pods */,
+				9D2B72BBDC68F51273CFF00A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -57,11 +77,21 @@
 				8405945122010C0300AC691A /* AppDelegate.swift */,
 				8405945322010C0300AC691A /* ViewController.swift */,
 				8405945522010C0300AC691A /* Main.storyboard */,
+				84059463220467F100AC691A /* SongCell.swift */,
 				8405945822010C0500AC691A /* Assets.xcassets */,
 				8405945A22010C0500AC691A /* LaunchScreen.storyboard */,
 				8405945D22010C0500AC691A /* Info.plist */,
+				840594652204C54800AC691A /* Song.swift */,
 			);
 			path = songAPI;
+			sourceTree = "<group>";
+		};
+		9D2B72BBDC68F51273CFF00A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C5685596B68E4B57105801EE /* Pods_songAPI.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,9 +101,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8405946022010C0500AC691A /* Build configuration list for PBXNativeTarget "songAPI" */;
 			buildPhases = (
+				E11113E595711BA407E6C5F3 /* [CP] Check Pods Manifest.lock */,
 				8405944A22010C0300AC691A /* Sources */,
 				8405944B22010C0300AC691A /* Frameworks */,
 				8405944C22010C0300AC691A /* Resources */,
+				BB8992407F182AF6072F31FE /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -130,12 +162,63 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		BB8992407F182AF6072F31FE /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-songAPI/Pods-songAPI-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-songAPI/Pods-songAPI-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E11113E595711BA407E6C5F3 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-songAPI-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		8405944A22010C0300AC691A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				840594662204C54800AC691A /* Song.swift in Sources */,
 				8405945422010C0300AC691A /* ViewController.swift in Sources */,
+				84059464220467F100AC691A /* SongCell.swift in Sources */,
 				8405945222010C0300AC691A /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -280,6 +363,7 @@
 		};
 		8405946122010C0500AC691A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FE8A4FCF1CF260B263030C76 /* Pods-songAPI.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -298,6 +382,7 @@
 		};
 		8405946222010C0500AC691A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7A0635BBA9773C53E11793A8 /* Pods-songAPI.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

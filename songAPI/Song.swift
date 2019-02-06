@@ -12,14 +12,14 @@ class Song {
     
     var id: Int
     var title: String
-    var releaseDate: Date
+    var releaseDate: String
     var artist: String
     var album: String
     var composer: String
     var writer: String
     var rating: String
     
-    init(id: Int, title: String, releaseDate: Date, artiste: String, album: String ,composer: String , writer: String, rating: String) {
+    init(id: Int, title: String, releaseDate: String, artiste: String, album: String ,composer: String , writer: String, rating: String) {
         self.id = id
         self.title = title
         self.releaseDate = releaseDate

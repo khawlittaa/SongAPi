@@ -17,67 +17,114 @@ class ViewController: UIViewController , UITableViewDelegate , UITableViewDataSo
     
     let url: String = "https://songsapisolution.azurewebsites.net/api/Song"
     var songArray = [AnyObject]()
-    var data = [Song]()
+    var allSongs: [Song] = []
     
-     override func viewDidLoad() {
+    override func viewDidLoad() {
         super.viewDidLoad()
-         songsTable.dataSource = self
+        
+        songsTable.dataSource = self
         songsTable.delegate = self
         
-        
+        getNewsFromInternet { (songs: [Song]?) in
+            guard let songs = songs else {
+                return
+            }
+            
+            self.allSongs = songs
+            self.songsTable.reloadData()
+        }
+    }
+    
+    func getNewsFromInternet(onComplition: @escaping ([Song]?)->()){
+        request(url, method: .get).responseJSON { (dataResponse: DataResponse<Any>) in
+            
+            guard let statusCode = dataResponse.response?.statusCode else {
+                onComplition(nil)
+                return
+            }
+            
+            let result = dataResponse.result.value
+            
+            switch statusCode {
+            case 200:
+                guard let allData = result as? [[String: AnyObject]] else {
+                    onComplition(nil)
+                    return
+                }
+                
+                var allSongs: [Song] = []
+                
+                for data in allData {
+                    if let song = self.parseFromJson(jsonData: data) {
+                        allSongs.append(song)
+                    }
+                }
+                
+                onComplition(allSongs)
+            default:
+                onComplition(nil)
+                return
+            }
+            
+        }
+    }
+    
+    func dontdothis(){
         Alamofire.request(url).responseJSON { (responseData) -> Void in
             if((responseData.result.value) != nil) {
                 let swiftyJsonVar = JSON(responseData.result.value!)
                 //
                 if let resData = swiftyJsonVar[].arrayObject {
                     self.songArray = resData as [AnyObject]
-                   
+                    
                 }
                 if self.songArray.count > 0 {
-                    self.songsTable.reloadData()
-                     print(self.songArray)
+                  //  self.songsTable.reloadData()
+                    print(self.songArray)
                 }
             }
         }
-       // name()
     }
     
-    func name ()
-    {
-     for sonng in songArray{
-      var s: Song = Song(id: sonng["id"] as! Int , title: sonng["title"] as! String , releaseDate: sonng["releaseDate"] as! Date , artiste: sonng["artist"] as! String, album: sonng["album"] as! String, composer: sonng["composer"] as! String, writer: sonng["writer"] as! String, rating: sonng["rating"] as! String)
-        data.append(s)
+    func parseFromJson(jsonData: [String: AnyObject]) -> Song?{
+        
+        //Required fileds
+        print ("parsing my song data ")
+        guard let id = jsonData["id"] as? Int, let title = jsonData["title"] as? String, let artist = jsonData["artist"] as? String, let album = jsonData["album"] as? String, let composer = jsonData["composer"] as? String, let writer = jsonData["writer"] as? String, let rating = jsonData["rating"] as? String , let releaseDate = jsonData["releaseDate"] as? String  else {
+            return nil
+        }
+        
+        let song = Song(id: id, title: title, releaseDate: releaseDate, artiste: artist, album: album, composer: composer, writer: writer, rating: rating)
+        print ("my song \(song)")
+        
+        return song
+        
     }
-        print("my data \(data)")
-    }
+    
     
     @IBAction func newSongBtnClicked(_ sender: Any) {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return songArray.count
+        return allSongs.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "SongCell", for: indexPath) as! SongCell
-        let title = songArray[indexPath.row]
-         cell.songTitle.text = title["title"] as? String
-         cell.artistName.text = title["artist"] as? String
-  
-     //   let s: Song = Song(id: title["id"] as! Int , title: title["title"] as! String , releaseDate: title["releaseDate"] as! Date , artiste: title["artist"] as! String, album: title["album"] as! String, composer: title["composer"] as! String, writer: title["writer"] as! String, rating: title["rating"] as! String)
-        //print ("a row of data \(s)")
-        // print ( makeGetCallWithAlamofire(id: indexPath.row+1))
+        //  let title = songArray[indexPath.row]
+        cell.songTitle.text = allSongs[indexPath.row].title
+        cell.artistName.text = allSongs[indexPath.row].artist
         return cell
     }
     
- }
-    
-
-    
-    
+}
 
 
-    
-   
+
+
+
+
+
+
 
 

@@ -8,7 +8,7 @@
 
 import UIKit
 import Alamofire
-import SwiftyJSON
+//import SwiftyJSON
 
 class ViewController: UIViewController , UITableViewDelegate , UITableViewDataSource{
     
@@ -18,6 +18,7 @@ class ViewController: UIViewController , UITableViewDelegate , UITableViewDataSo
     let url: String = "https://songsapisolution.azurewebsites.net/api/Song"
     var songArray = [AnyObject]()
     var allSongs: [Song] = []
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -69,22 +70,7 @@ class ViewController: UIViewController , UITableViewDelegate , UITableViewDataSo
         }
     }
     
-    func dontdothis(){
-        Alamofire.request(url).responseJSON { (responseData) -> Void in
-            if((responseData.result.value) != nil) {
-                let swiftyJsonVar = JSON(responseData.result.value!)
-                //
-                if let resData = swiftyJsonVar[].arrayObject {
-                    self.songArray = resData as [AnyObject]
-                    
-                }
-                if self.songArray.count > 0 {
-                  //  self.songsTable.reloadData()
-                    print(self.songArray)
-                }
-            }
-        }
-    }
+
     
     func parseFromJson(jsonData: [String: AnyObject]) -> Song?{
         
@@ -115,6 +101,13 @@ class ViewController: UIViewController , UITableViewDelegate , UITableViewDataSo
         cell.songTitle.text = allSongs[indexPath.row].title
         cell.artistName.text = allSongs[indexPath.row].artist
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let details = storyboard?.instantiateViewController(withIdentifier: "details") as! DetailsVC
+        details.song = allSongs[indexPath.row]
+        navigationController?.pushViewController(details, animated: true)
+
     }
     
 }

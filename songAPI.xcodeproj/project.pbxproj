@@ -14,6 +14,7 @@
 		8405945C22010C0500AC691A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8405945A22010C0500AC691A /* LaunchScreen.storyboard */; };
 		84059464220467F100AC691A /* SongCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84059463220467F100AC691A /* SongCell.swift */; };
 		840594662204C54800AC691A /* Song.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840594652204C54800AC691A /* Song.swift */; };
+		84F0D1E5220B753400F5D0E4 /* DetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F0D1E4220B753400F5D0E4 /* DetailsVC.swift */; };
 		E898CD531631A4C022CF4A35 /* Pods_songAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5685596B68E4B57105801EE /* Pods_songAPI.framework */; };
 /* End PBXBuildFile section */
 
@@ -28,6 +29,7 @@
 		8405945D22010C0500AC691A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		84059463220467F100AC691A /* SongCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongCell.swift; sourceTree = "<group>"; };
 		840594652204C54800AC691A /* Song.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Song.swift; sourceTree = "<group>"; };
+		84F0D1E4220B753400F5D0E4 /* DetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsVC.swift; sourceTree = "<group>"; };
 		C5685596B68E4B57105801EE /* Pods_songAPI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_songAPI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE8A4FCF1CF260B263030C76 /* Pods-songAPI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-songAPI.debug.xcconfig"; path = "Target Support Files/Pods-songAPI/Pods-songAPI.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -75,13 +77,14 @@
 			isa = PBXGroup;
 			children = (
 				8405945122010C0300AC691A /* AppDelegate.swift */,
-				8405945322010C0300AC691A /* ViewController.swift */,
-				8405945522010C0300AC691A /* Main.storyboard */,
-				84059463220467F100AC691A /* SongCell.swift */,
-				8405945822010C0500AC691A /* Assets.xcassets */,
-				8405945A22010C0500AC691A /* LaunchScreen.storyboard */,
-				8405945D22010C0500AC691A /* Info.plist */,
 				840594652204C54800AC691A /* Song.swift */,
+				8405945322010C0300AC691A /* ViewController.swift */,
+				84F0D1E4220B753400F5D0E4 /* DetailsVC.swift */,
+				84059463220467F100AC691A /* SongCell.swift */,
+				8405945A22010C0500AC691A /* LaunchScreen.storyboard */,
+				8405945522010C0300AC691A /* Main.storyboard */,
+				8405945D22010C0500AC691A /* Info.plist */,
+				8405945822010C0500AC691A /* Assets.xcassets */,
 			);
 			path = songAPI;
 			sourceTree = "<group>";
@@ -105,7 +108,7 @@
 				8405944A22010C0300AC691A /* Sources */,
 				8405944B22010C0300AC691A /* Frameworks */,
 				8405944C22010C0300AC691A /* Resources */,
-				BB8992407F182AF6072F31FE /* [CP] Embed Pods Frameworks */,
+				8EAB4F2931BB3081694B0F29 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -163,7 +166,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		BB8992407F182AF6072F31FE /* [CP] Embed Pods Frameworks */ = {
+		8EAB4F2931BB3081694B0F29 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -173,14 +176,12 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-songAPI/Pods-songAPI-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -220,6 +221,7 @@
 				8405945422010C0300AC691A /* ViewController.swift in Sources */,
 				84059464220467F100AC691A /* SongCell.swift in Sources */,
 				8405945222010C0300AC691A /* AppDelegate.swift in Sources */,
+				84F0D1E5220B753400F5D0E4 /* DetailsVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

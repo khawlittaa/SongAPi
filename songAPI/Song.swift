@@ -19,6 +19,17 @@ class Song {
     var writer: String
     var rating: String
     
+    init ()
+    {
+        self.id = 100
+        self.title = ""
+        self.releaseDate = ""
+        self.artist = ""
+        self.album = ""
+        self.composer = ""
+        self.writer = ""
+        self.rating = ""
+    }
     init(id: Int, title: String, releaseDate: String, artiste: String, album: String ,composer: String , writer: String, rating: String) {
         self.id = id
         self.title = title

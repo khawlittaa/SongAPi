@@ -26,7 +26,7 @@ class ViewController: UIViewController , UITableViewDelegate , UITableViewDataSo
         songsTable.dataSource = self
         songsTable.delegate = self
         
-        getNewsFromInternet { (songs: [Song]?) in
+        getSongsFromInternet { (songs: [Song]?) in
             guard let songs = songs else {
                 return
             }
@@ -36,7 +36,7 @@ class ViewController: UIViewController , UITableViewDelegate , UITableViewDataSo
         }
     }
     
-    func getNewsFromInternet(onComplition: @escaping ([Song]?)->()){
+    func getSongsFromInternet(onComplition: @escaping ([Song]?)->()){
         request(url, method: .get).responseJSON { (dataResponse: DataResponse<Any>) in
             
             guard let statusCode = dataResponse.response?.statusCode else {
